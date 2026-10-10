@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Number Guessing Game 🎯 – C Project Web Edition</title>
+  <meta name="description" content="Guess the hidden secret number between 1 and 100! Faithful to the classic C program with difficulty levels, hints, and best score tracking." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <!-- Header -->
+    <header class="header">
+      <div class="brand">
+        <span class="brand-icon">🎯</span>
+        <div>
+          <h1>NUMBER GUESS</h1>
+          <p class="subtitle">Based on C Programming Project • Playable Online</p>
+        </div>
+      </div>
+      <div class="header-pills">
+        <div class="pill best-pill" title="Best score (fewest guesses)"><i class="fa-solid fa-trophy"></i> Best: <span id="stat-best">-</span></div>
+        <button class="btn-icon" id="btn-sound" title="Toggle Sound"><i class="fa-solid fa-volume-high"></i></button>
+      </div>
+    </header>
+
+    <!-- Difficulty & Range Selector -->
+    <section class="mode-bar">
+      <button class="mode-btn active" data-range="100">1 – 100 (Classic C)</button>
+      <button class="mode-btn" data-range="50">1 – 50 (Easy)</button>
+      <button class="mode-btn" data-range="500">1 – 500 (Hard)</button>
+    </section>
+
+    <!-- Main Game Card -->
+    <main class="game-card">
+      <!-- Mystery Box Visual -->
+      <div class="mystery-box-wrap">
+        <div class="mystery-box" id="mystery-box">
+          <span class="question-mark" id="box-display">?</span>
+        </div>
+        <div class="range-hint" id="range-hint">The secret number is between <b>1</b> and <b>100</b></div>
+      </div>
+
+      <!-- Feedback Banner -->
+      <div class="feedback-banner" id="feedback-banner">
+        <i class="fa-solid fa-lightbulb" id="feedback-icon"></i>
+        <span id="feedback-text">Take your first guess!</span>
+      </div>
+
+      <!-- Input Form -->
+      <form id="guess-form" class="guess-form">
+        <div class="input-wrapper">
+          <input 
+            type="number" 
+            id="guess-input" 
+            placeholder="Enter guess..." 
+            autocomplete="off" 
+            required 
+            autofocus 
+          />
+          <button type="submit" class="btn-submit" id="btn-submit">
+            <span>GUESS</span> <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+
+      <!-- Active Stats Bar -->
+      <div class="stats-row">
+        <div class="stat-item">
+          <span class="stat-label">Guesses Made</span>
+          <span class="stat-value" id="count-guesses">0</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Current Range</span>
+          <span class="stat-value" id="current-range-scope">1 – 100</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-label">Status</span>
+          <span class="stat-value active-status" id="game-status">Playing</span>
+        </div>
+      </div>
+
+      <!-- Guess History Track -->
+      <div class="history-section">
+        <div class="history-header">
+          <span>Previous Guesses</span>
+          <button type="button" class="btn-reset" id="btn-new-game"><i class="fa-solid fa-rotate-right"></i> New Game</button>
+        </div>
+        <div class="history-tags" id="history-tags">
+          <span class="no-history-hint">No guesses yet</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Original C Code Modal Trigger & Footer -->
+    <footer class="footer">
+      <div class="c-code-box">
+        <div class="c-code-header">
+          <span><i class="fa-solid fa-code"></i> Original C Logic:</span>
+          <code>numer_guessing_game.c</code>
+        </div>
+        <p class="c-code-snippet">
+          <code>int randomNumber = (rand() % 100) + 1;</code><br/>
+          <code>if (guess &gt; rand) "Lower number please!"</code><br/>
+          <code>if (guess &lt; rand) "Higher number please!"</code>
+        </p>
+      </div>
+      <p class="repo-link">
+        <a href="https://github.com/MrHarshalBane/number-guessing-game" target="_blank">View GitHub Repository</a>
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
